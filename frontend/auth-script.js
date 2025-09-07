@@ -73,6 +73,12 @@ async function handleLogin(e) {
     const password = formData.get('password');
     const rememberMe = formData.get('rememberMe');
     
+    console.log('Form data extracted:');
+    console.log('- email:', email);
+    console.log('- password:', password ? '***' : 'MISSING');
+    console.log('- rememberMe:', rememberMe);
+    console.log('- rememberMe checkbox checked:', document.getElementById('rememberMe')?.checked);
+    
     // Validate form
     if (!email || !password) {
         showErrorModal('Please fill in all required fields.');
@@ -85,18 +91,21 @@ async function handleLogin(e) {
     
     try {
         console.log('Making API call to:', `${API_BASE_URL}/auth/login`);
-        console.log('Request data:', { email, password: '***', rememberMe: !!rememberMe });
+        
+        const requestPayload = {
+            email,
+            password,
+            rememberMe: !!rememberMe
+        };
+        console.log('Request payload:', { email, password: '***', rememberMe: !!rememberMe });
+        console.log('Full request payload (with password):', requestPayload);
         
         const response = await fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                email,
-                password,
-                rememberMe: !!rememberMe
-            })
+            body: JSON.stringify(requestPayload)
         });
         
         console.log('Response status:', response.status);
