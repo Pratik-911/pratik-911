@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Navigation - Embrace Your Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>Embrace Your Journey</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active" onclick="showSection('dashboard')">Dashboard</a>
+                <a href="#tracking" class="nav-link" onclick="showSection('tracking')">Track Symptoms</a>
+                <a href="#reports" class="nav-link" onclick="showSection('reports')">Reports</a>
+                <a href="#recipes" class="nav-link" onclick="showSection('recipes')">Recipes</a>
+                <a href="#medications" class="nav-link" onclick="showSection('medications')">Medications</a>
+                <div class="user-menu">
+                    <div class="user-profile" onclick="toggleUserMenu()">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="user-name">Test User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="#profile" onclick="showSection('profile')">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                        <a href="#" onclick="alert('Logout clicked')">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <h1>Dashboard Section</h1>
+                <p>This is the dashboard content.</p>
+            </div>
+        </section>
+
+        <section id="tracking" class="section">
+            <div class="container">
+                <h1>Track Symptoms Section</h1>
+                <p>This is the tracking content.</p>
+            </div>
+        </section>
+
+        <section id="reports" class="section">
+            <div class="container">
+                <h1>Reports Section</h1>
+                <p>This is the reports content.</p>
+            </div>
+        </section>
+
+        <section id="recipes" class="section">
+            <div class="container">
+                <h1>Recipes Section</h1>
+                <p>This is the recipes content.</p>
+            </div>
+        </section>
+
+        <section id="medications" class="section">
+            <div class="container">
+                <h1>Medications Section</h1>
+                <p>This is the medications content.</p>
+            </div>
+        </section>
+
+        <section id="profile" class="section">
+            <div class="container">
+                <h1>Profile Section</h1>
+                <p>This is the profile content.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple navigation function
+        function showSection(sectionId) {
+            console.log('Showing section:', sectionId);
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        function toggleUserMenu() {
+            console.log('Toggle user menu clicked');
+            const userDropdown = document.getElementById('user-dropdown');
+            if (userDropdown) {
+                userDropdown.style.display = userDropdown.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded');
+        });
+    </script>
+</body>
+</html>

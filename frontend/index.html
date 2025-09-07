@@ -1,519 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embrace Your Journey - Supporting Women Through Menopause</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
+</head>
+<body class="auth-body">
+    <!-- Background Animation -->
+    <div class="auth-background">
+        <div class="floating-hearts">
+            <div class="heart">💖</div>
+            <div class="heart">🌸</div>
+            <div class="heart">💕</div>
+            <div class="heart">🌺</div>
+            <div class="heart">💗</div>
+            <div class="heart">🌼</div>
+        </div>
+    </div>
+
+    <!-- Landing Container -->
+    <div class="auth-container futuristic-auth">
+        <!-- Logo Section -->
+        <div class="auth-logo">
+            <div class="logo-icon">
                 <i class="fas fa-heart"></i>
-                <span>Embrace Your Journey</span>
             </div>
-            <div class="nav-menu">
-                <a href="#dashboard" class="nav-link active">Dashboard</a>
-                <a href="#tracking" class="nav-link">Track Symptoms</a>
-                <a href="#reports" class="nav-link">Reports</a>
-                <a href="#recipes" class="nav-link">Recipes</a>
-                <a href="#medications" class="nav-link">Medications</a>
-                <div class="user-menu">
-                    <div class="user-profile" onclick="toggleUserMenu()">
-                        <i class="fas fa-user-circle"></i>
-                        <span id="user-name">User</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="user-dropdown" id="user-dropdown">
-                        <a href="#profile" onclick="showSection('profile')">
-                            <i class="fas fa-user"></i>
-                            Profile
-                        </a>
-                        <a href="#" onclick="logout()">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Logout
-                        </a>
+            <h1>Embrace Your Journey</h1>
+            <p>Supporting Women Through Every Stage of Menopause</p>
+        </div>
+
+        <!-- Welcome Section -->
+        <div class="auth-form-container">
+            <div class="auth-form">
+                <div class="form-header">
+                    <h2>Welcome to Your Journey</h2>
+                    <p>Track symptoms, manage medications, and navigate menopause with confidence</p>
+                </div>
+
+                <div class="auth-buttons">
+                    <a href="login.html" class="auth-btn primary">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </a>
+                    
+                    <a href="register.html" class="auth-btn secondary">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </a>
+                </div>
+
+                <div class="demo-section">
+                    <p>Want to try it first?</p>
+                    <div class="demo-credentials">
+                        <p><strong>Demo Account:</strong></p>
+                        <p>Email: test@example.com</p>
+                        <p>Password: password123</p>
                     </div>
                 </div>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
             </div>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="section active">
-            <div class="container">
-                <div class="welcome-section">
-                    <h1>Welcome to Your Journey</h1>
-                    <p>Track your symptoms, celebrate your progress, and embrace every step of your menopause journey with confidence.</p>
+        <!-- Features Preview -->
+        <div class="features-preview">
+            <h3>Your Journey Includes</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Track your symptoms daily</span>
                 </div>
-
-                <!-- Quick Stats -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3 id="days-tracked">0</h3>
-                            <p>Days Tracked</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3 id="symptoms-logged">0</h3>
-                            <p>Symptoms Logged</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3 id="medications-taken">0</h3>
-                            <p>Medications Taken</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div class="stat-content">
-                            <h3 id="goals-achieved">0</h3>
-                            <p>Goals Achieved</p>
-                        </div>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-pills"></i>
+                    <span>Manage medications & reminders</span>
                 </div>
-
-                <!-- Quick Actions -->
-                <div class="quick-actions">
-                    <h2>Quick Actions</h2>
-                    <div class="action-buttons">
-                        <button class="action-btn" onclick="showSection('tracking')">
-                            <i class="fas fa-plus-circle"></i>
-                            Log Today's Symptoms
-                        </button>
-                        <button class="action-btn" onclick="showSection('reports')">
-                            <i class="fas fa-chart-bar"></i>
-                            View Reports
-                        </button>
-                        <button class="action-btn" onclick="showSection('medications')">
-                            <i class="fas fa-bell"></i>
-                            Check Medications
-                        </button>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Discover menopause-friendly recipes</span>
                 </div>
-
-                <!-- Recent Activity -->
-                <div class="recent-activity">
-                    <h2>Recent Activity</h2>
-                    <div id="activity-list" class="activity-list">
-                        <div class="activity-item">
-                            <i class="fas fa-info-circle"></i>
-                            <p>Start your journey by logging your first symptoms!</p>
-                        </div>
-                    </div>
+                <div class="feature-item">
+                    <i class="fas fa-file-medical"></i>
+                    <span>Export reports for your doctor</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Join a supportive community</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & private data</span>
                 </div>
             </div>
-        </section>
-
-        <!-- Symptom Tracking Section -->
-        <section id="tracking" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Track Your Symptoms</h1>
-                    <p>Log your daily symptoms to understand patterns and trends in your menopause journey.</p>
-                </div>
-
-                <div class="tracking-form">
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" id="date" required>
-                    </div>
-
-                    <div class="symptom-categories">
-                        <div class="category">
-                            <h3><i class="fas fa-smile"></i> Mood</h3>
-                            <div class="rating-scale">
-                                <button class="rating-btn" data-rating="1" data-category="mood">
-                                    <i class="fas fa-frown"></i>
-                                    <span>Very Low</span>
-                                </button>
-                                <button class="rating-btn" data-rating="2" data-category="mood">
-                                    <i class="fas fa-meh"></i>
-                                    <span>Low</span>
-                                </button>
-                                <button class="rating-btn" data-rating="3" data-category="mood">
-                                    <i class="fas fa-smile"></i>
-                                    <span>Neutral</span>
-                                </button>
-                                <button class="rating-btn" data-rating="4" data-category="mood">
-                                    <i class="fas fa-smile-beam"></i>
-                                    <span>Good</span>
-                                </button>
-                                <button class="rating-btn" data-rating="5" data-category="mood">
-                                    <i class="fas fa-laugh"></i>
-                                    <span>Excellent</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="category">
-                            <h3><i class="fas fa-bed"></i> Sleep Quality</h3>
-                            <div class="rating-scale">
-                                <button class="rating-btn" data-rating="1" data-category="sleep">
-                                    <i class="fas fa-moon"></i>
-                                    <span>Poor</span>
-                                </button>
-                                <button class="rating-btn" data-rating="2" data-category="sleep">
-                                    <i class="fas fa-moon"></i>
-                                    <span>Fair</span>
-                                </button>
-                                <button class="rating-btn" data-rating="3" data-category="sleep">
-                                    <i class="fas fa-moon"></i>
-                                    <span>Average</span>
-                                </button>
-                                <button class="rating-btn" data-rating="4" data-category="sleep">
-                                    <i class="fas fa-moon"></i>
-                                    <span>Good</span>
-                                </button>
-                                <button class="rating-btn" data-rating="5" data-category="sleep">
-                                    <i class="fas fa-moon"></i>
-                                    <span>Excellent</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="category">
-                            <h3><i class="fas fa-weight"></i> Weight</h3>
-                            <div class="weight-input">
-                                <input type="number" id="weight" placeholder="Enter weight" step="0.1">
-                                <select id="weight-unit">
-                                    <option value="lbs">lbs</option>
-                                    <option value="kg">kg</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="category">
-                            <h3><i class="fas fa-sync-alt"></i> Cycle Changes</h3>
-                            <div class="cycle-options">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="irregular">
-                                    <span>Irregular periods</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="heavy">
-                                    <span>Heavy bleeding</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="light">
-                                    <span>Light bleeding</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="missed">
-                                    <span>Missed period</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="hot-flashes">
-                                    <span>Hot flashes</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" value="night-sweats">
-                                    <span>Night sweats</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="category">
-                            <h3><i class="fas fa-comment"></i> Additional Notes</h3>
-                            <textarea id="notes" placeholder="Any additional symptoms or observations..."></textarea>
-                        </div>
-                    </div>
-
-                    <button class="submit-btn" onclick="submitSymptoms()">
-                        <i class="fas fa-save"></i>
-                        Save Today's Entry
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reports Section -->
-        <section id="reports" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Your Health Reports</h1>
-                    <p>Visual insights into your symptoms and progress over time.</p>
-                </div>
-
-                <div class="reports-controls">
-                    <select id="report-period">
-                        <option value="week">Last Week</option>
-                        <option value="month">Last Month</option>
-                        <option value="3months">Last 3 Months</option>
-                        <option value="year">Last Year</option>
-                    </select>
-                    <button class="export-btn" onclick="exportReport()">
-                        <i class="fas fa-download"></i>
-                        Export for Doctor
-                    </button>
-                </div>
-
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <h3>Mood Trends</h3>
-                        <div class="chart-placeholder" id="mood-chart">
-                            <p>No data available yet. Start tracking to see your mood trends!</p>
-                        </div>
-                    </div>
-
-                    <div class="report-card">
-                        <h3>Sleep Quality</h3>
-                        <div class="chart-placeholder" id="sleep-chart">
-                            <p>No data available yet. Start tracking to see your sleep patterns!</p>
-                        </div>
-                    </div>
-
-                    <div class="report-card">
-                        <h3>Weight Tracking</h3>
-                        <div class="chart-placeholder" id="weight-chart">
-                            <p>No data available yet. Start tracking to see your weight trends!</p>
-                        </div>
-                    </div>
-
-                    <div class="report-card">
-                        <h3>Symptom Summary</h3>
-                        <div class="symptom-summary" id="symptom-summary">
-                            <p>No data available yet. Start tracking to see your symptom patterns!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recipes Section -->
-        <section id="recipes" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Menopause-Friendly Recipes</h1>
-                    <p>Nourishing recipes and nutrition tips to support your journey.</p>
-                </div>
-
-                <div class="recipe-categories">
-                    <button class="category-btn active" data-category="all">All Recipes</button>
-                    <button class="category-btn" data-category="hormone-balancing">Hormone Balancing</button>
-                    <button class="category-btn" data-category="bone-health">Bone Health</button>
-                    <button class="category-btn" data-category="mood-support">Mood Support</button>
-                    <button class="category-btn" data-category="sleep-aid">Sleep Aid</button>
-                </div>
-
-                <div class="recipes-grid" id="recipes-grid">
-                    <!-- Recipes will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Medications Section -->
-        <section id="medications" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Medication & Reminder Management</h1>
-                    <p>Stay consistent with your medications and hormone therapy.</p>
-                </div>
-
-                <div class="medication-form">
-                    <h3>Add New Medication</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="med-name">Medication Name</label>
-                            <input type="text" id="med-name" placeholder="e.g., Estradiol">
-                        </div>
-                        <div class="form-group">
-                            <label for="med-dosage">Dosage</label>
-                            <input type="text" id="med-dosage" placeholder="e.g., 1mg">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="med-frequency">Frequency</label>
-                            <select id="med-frequency">
-                                <option value="daily">Daily</option>
-                                <option value="twice-daily">Twice Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="med-time">Time</label>
-                            <input type="time" id="med-time">
-                        </div>
-                    </div>
-                    <button class="add-med-btn" onclick="addMedication()">
-                        <i class="fas fa-plus"></i>
-                        Add Medication
-                    </button>
-                </div>
-
-                <div class="medications-list" id="medications-list">
-                    <h3>Your Medications</h3>
-                    <div class="no-medications">
-                        <i class="fas fa-pills"></i>
-                        <p>No medications added yet. Add your first medication to get started!</p>
-                    </div>
-                </div>
-
-                <div class="reminders-section">
-                    <h3>Today's Reminders</h3>
-                    <div id="today-reminders" class="reminders-list">
-                        <div class="no-reminders">
-                            <i class="fas fa-bell-slash"></i>
-                            <p>No reminders for today. Add medications to set up reminders!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Profile Section -->
-        <section id="profile" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Your Profile</h1>
-                    <p>Manage your account settings and personal information.</p>
-                </div>
-
-                <div class="profile-container">
-                    <div class="profile-card">
-                        <div class="profile-header">
-                            <div class="profile-avatar">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div class="profile-info">
-                                <h2 id="profile-name">User Name</h2>
-                                <p id="profile-email">user@example.com</p>
-                                <span class="profile-badge">Active Member</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-details">
-                            <div class="detail-item">
-                                <label>Age:</label>
-                                <span id="profile-age">-</span>
-                            </div>
-                            <div class="detail-item">
-                                <label>Menopause Stage:</label>
-                                <span id="profile-stage">-</span>
-                            </div>
-                            <div class="detail-item">
-                                <label>Member Since:</label>
-                                <span id="profile-joined">-</span>
-                            </div>
-                            <div class="detail-item">
-                                <label>Days Tracked:</label>
-                                <span id="profile-days">0</span>
-                            </div>
-                        </div>
-
-                        <div class="profile-actions">
-                            <button class="profile-btn" onclick="editProfile()">
-                                <i class="fas fa-edit"></i>
-                                Edit Profile
-                            </button>
-                            <button class="profile-btn secondary" onclick="changePassword()">
-                                <i class="fas fa-key"></i>
-                                Change Password
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="profile-stats">
-                        <h3>Your Journey Statistics</h3>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-calendar-check"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <h4 id="profile-days-tracked">0</h4>
-                                    <p>Days Tracked</p>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <h4 id="profile-symptoms-logged">0</h4>
-                                    <p>Symptoms Logged</p>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-pills"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <h4 id="profile-medications-taken">0</h4>
-                                    <p>Medications Taken</p>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <h4 id="profile-goals-achieved">0</h4>
-                                    <p>Goals Achieved</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal">
-        <div class="modal-content">
-            <div class="success-animation">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2>Great Job!</h2>
-            <p id="success-message">Your entry has been saved successfully!</p>
-            <button class="modal-btn" onclick="closeModal()">Continue</button>
         </div>
     </div>
 
-    <!-- Goal Celebration Modal -->
-    <div id="celebration-modal" class="modal">
-        <div class="modal-content celebration">
-            <div class="celebration-animation">
-                <i class="fas fa-trophy"></i>
-                <div class="confetti"></div>
-            </div>
-            <h2>Congratulations!</h2>
-            <p id="celebration-message">You've reached a new milestone!</p>
-            <button class="modal-btn" onclick="closeModal()">Celebrate!</button>
-        </div>
-    </div>
+    <style>
+        .auth-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
 
-    <script src="auth-script.js"></script>
-    <script src="script.js"></script>
-  </body>
+        .auth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .auth-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .auth-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .auth-btn.secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .auth-btn.secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .demo-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .demo-credentials {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .demo-credentials p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</body>
 </html>

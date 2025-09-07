@@ -516,7 +516,7 @@ function closeModal() {
 
 // Redirect to main app
 function redirectToApp() {
-    window.location.href = 'index.html';
+    window.location.href = 'app.html';
 }
 
 // Sign in with Google (placeholder)
