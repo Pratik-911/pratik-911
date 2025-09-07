@@ -1,5 +1,5 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "public": true
+  "buildCommand": "cp -r frontend/* .",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No install needed'"
 }

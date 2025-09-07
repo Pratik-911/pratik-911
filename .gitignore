@@ -9,3 +9,4 @@ build/
 backend/config/serviceAccountKey.json
 .vite/
 *firebase-adminsdk*.json
+.vercel
