@@ -961,22 +961,33 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Initialize reports when section is shown
-document.addEventListener('DOMContentLoaded', function() {
-    const reportsSection = document.getElementById('reports');
-    if (reportsSection) {
+// Logout function
+function logout() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userData');
+    window.location.href = 'index.html';
+}
+
+// Initialize when DOM is loaded - but only if called from app.html authentication check
+// This prevents auto-initialization and lets app.html control when to initialize
+function initializeAppIfAuthenticated() {
+    initializeApp();
+    
+    // Set up medication reminders observer
+    const medicationsSection = document.getElementById('medications');
+    if (medicationsSection) {
         const observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                    if (reportsSection.classList.contains('active')) {
-                        updateReports();
+                    if (medicationsSection.classList.contains('active')) {
+                        updateReminders();
                     }
                 }
             });
         });
-        observer.observe(reportsSection, { attributes: true });
+        observer.observe(medicationsSection, { attributes: true });
     }
-});
+}
 
 // Initialize medications when section is shown
 document.addEventListener('DOMContentLoaded', function() {
