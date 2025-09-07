@@ -1,11 +1,5 @@
 {
-  "buildCommand": "cd frontend && cp *.html *.css *.js dist/ 2>/dev/null || true",
+  "buildCommand": "echo 'No build needed'",
   "outputDirectory": "frontend",
-  "installCommand": "echo 'No install needed'",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "installCommand": "echo 'No install needed'"
 }
