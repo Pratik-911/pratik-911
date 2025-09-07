@@ -4,7 +4,7 @@
 const API_BASE_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:4000/api' 
     : 'https://pratik-911.onrender.com/api';
-let currentUser = null;
+// currentUser variable will be declared in script.js
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
