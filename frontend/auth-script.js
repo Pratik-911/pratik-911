@@ -29,8 +29,10 @@ function initializeAuth() {
 function setupEventListeners() {
     // Login form
     const loginForm = document.getElementById('loginForm');
+    console.log('Login form found:', loginForm);
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
+        console.log('Login form event listener added');
     }
     
     // Register form
@@ -64,6 +66,7 @@ function checkExistingSession() {
 // Handle login form submission
 async function handleLogin(e) {
     e.preventDefault();
+    console.log('Login form submitted');
     
     const formData = new FormData(e.target);
     const email = formData.get('email');
