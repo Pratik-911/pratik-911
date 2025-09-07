@@ -1,5 +1,11 @@
 {
-  "buildCommand": "cp -r frontend/* .",
+  "buildCommand": "cp -r frontend/* . && ls -la",
   "outputDirectory": ".",
-  "installCommand": "echo 'No install needed'"
+  "installCommand": "echo 'No install needed'",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
