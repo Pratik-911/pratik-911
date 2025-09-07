@@ -84,6 +84,9 @@ async function handleLogin(e) {
     setButtonLoading(submitBtn, true);
     
     try {
+        console.log('Making API call to:', `${API_BASE_URL}/auth/login`);
+        console.log('Request data:', { email, password: '***', rememberMe: !!rememberMe });
+        
         const response = await fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
@@ -95,6 +98,9 @@ async function handleLogin(e) {
                 rememberMe: !!rememberMe
             })
         });
+        
+        console.log('Response status:', response.status);
+        console.log('Response headers:', [...response.headers.entries()]);
         let data;
         try {
             data = await response.json();
@@ -109,10 +115,12 @@ async function handleLogin(e) {
                 redirectToApp();
             }, 2000);
         } else {
+            console.log('Login failed:', data);
             showErrorModal((data && data.message) || 'Login failed. Please try again.');
         }
     } catch (error) {
         console.error('Login error:', error);
+        console.error('Error details:', error.message);
         showErrorModal('Network error. Please check your connection and try again.');
     } finally {
         setButtonLoading(submitBtn, false);
