@@ -1,14 +1,22 @@
 // Global variables
+let currentUser = null;
+let currentSection = 'dashboard';
+let symptoms = [];
+let medications = [];
+let recipes = [];
 let userData = {
-    symptoms: [],
-    medications: [],
-    goals: {
-        daysTracked: 0,
-        symptomsLogged: 0,
-        medicationsTaken: 0,
-        goalsAchieved: 0
-    }
+    daysTracked: 0,
+    symptomsLogged: 0,
+    medicationsTaken: 0,
+    goalsAchieved: 0
 };
+
+// API Base URL function
+function getApiBaseUrl() {
+    return window.location.hostname === 'localhost' 
+        ? 'http://localhost:4000/api' 
+        : `${window.location.protocol}//${window.location.hostname.replace('embrace-journey-frontend', 'embrace-journey-backend')}/api`;
+}
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
@@ -919,7 +927,7 @@ async function logout() {
         try {
             const token = getAuthToken();
             if (token) {
-                    await fetch('http://localhost:4000/api/auth/logout', {
+                    await fetch(`${getApiBaseUrl()}/auth/logout`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`,

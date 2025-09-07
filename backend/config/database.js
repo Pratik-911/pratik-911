@@ -4,7 +4,7 @@ const { getFirestore } = require('firebase-admin/firestore');
 
 // Initialize Firebase Admin with environment variables for production
 if (!admin.apps.length) {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && process.env.FIREBASE_PRIVATE_KEY) {
         // Use environment variables in production
         admin.initializeApp({
             credential: admin.credential.cert({
@@ -14,14 +14,16 @@ if (!admin.apps.length) {
             })
         });
     } else {
-        // Use service account file in development
+        // Use service account file in development or fallback
         try {
             const serviceAccount = require('./serviceAccountKey.json');
             admin.initializeApp({
                 credential: admin.credential.cert(serviceAccount)
             });
         } catch (error) {
-            console.error('Firebase service account file not found. Please add serviceAccountKey.json or set environment variables.');
+            console.error('Firebase service account file not found and environment variables not set.');
+            console.error('For development: Add serviceAccountKey.json to backend/config/');
+            console.error('For production: Set FIREBASE_PROJECT_ID, FIREBASE_PRIVATE_KEY, and FIREBASE_CLIENT_EMAIL environment variables.');
             throw error;
         }
     }
