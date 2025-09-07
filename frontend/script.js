@@ -15,7 +15,7 @@ let userData = {
 function getApiBaseUrl() {
     return window.location.hostname === 'localhost' 
         ? 'http://localhost:4000/api' 
-        : `${window.location.protocol}//${window.location.hostname.replace('embrace-journey-frontend', 'embrace-journey-backend')}/api`;
+        : 'https://pratik-911.onrender.com/api';
 }
 
 // Initialize the app
