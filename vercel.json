@@ -1,8 +1,7 @@
 {
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "frontend/dist",
-  "installCommand": "npm install",
-  "framework": "vite",
+  "buildCommand": "cd frontend && cp *.html *.css *.js dist/ 2>/dev/null || true",
+  "outputDirectory": "frontend",
+  "installCommand": "echo 'No install needed'",
   "rewrites": [
     {
       "source": "/(.*)",
