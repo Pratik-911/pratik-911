@@ -1,0 +1,54 @@
+# Render Firebase Environment Variables
+
+## Copy these EXACT values to your Render backend service environment variables:
+
+```
+NODE_ENV=production
+PORT=10000
+JWT_SECRET=b27320c49ce02e343544794aa63c2ca5344a622bfd3944db1bfed1cc2ce8b4a91692a8ed063189142708bff0ce51374359b879f4e5d1fe2952246149c053adfb
+JWT_EXPIRES_IN=24h
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+FIREBASE_PROJECT_ID=embrace-e6d5a
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-fbsvc@embrace-e6d5a.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCWyzZNCo/buh7T
+EbRDv0swRLh1pR0CiNKTU7Jw5RFIIgP5N7r9tXxaEmKqufsPWCkhYryr8o1KpzPN
+aJoy1sgpGfkvLeTYIgL9YDzgTeGdr9CUSRLw2SnA3edl4A7Bdp0DC2FljCdJVY09
+Er3VyustiRnucHBnNAltDgLr3trH559kBWnQ+FFN990QUSmnOehvU22WlqVW2ok/
+9T0yVMSXLfiSqfyu9GYCrfT0VJtfurBNTjg8OWP2l/jYZNC/WwrxkNTZIm9uw/ej
+8zmoxXwkWVt2vf87gFBX+wuzp/UIWF8MwOj+tGjf5t76a9ngzRTDziecDg/ME/Jr
+kkSqhMsZAgMBAAECggEACWZU9fP22DpPohYcL83snK9n9TNr7cTEJZllyepJi77N
+ExuxfQ+zVvUG8AAEYaY7+CAMxUYrHxBxpvgChrFDTGaZVSLN/VgPaiZ13QCV1AvJ
+23h7pQZQdzyN6FiRaudfLbmnolocd9KMqZYxvbI2u0Gs22NoalKA1Oq27WeYqTXT
+R7G9lqCu662w4DX8vvwIyX7qLjJajo1WzB4MFsdXhFZ4CweGqA9ChIcWNokimD4p
+BfvtlRAQBb3diiYfaeXEcTtLunczKNNImrBX3aHcdulZ0I5Of4oiw1yNwMzcnFyR
+eMMDHT4CXMnsIlMnFYggI7skSp2QRepaScqJRF5UoQKBgQDFCb9fjeR1Be57W9j0
+U1Y8v0ygfTmwfbvyQdrz8VNPLsbRoCvN/WTeGcTiAw4AxOPVwr6bQzjf67Rj6n48
+3qFQQTSuAFRWKq7NXuaTAuQiYogfwAI0dxN21fLDQjHqouTXqhTsUQZSwN98G0kV
+PX4J3B9V3ztAGsWcbPApAOdMEQKBgQDD6uLfHDFjWP792vRBXGzrjnUEVLBExFJI
+IdDEjqK5BvXoxL5W0ydwvL2594k9ShiGZ7j7tMxfpZFNJXFMFClkRlEYDq9yq7+5
+/g3KimM/e80lWTMB//66rVxTEvCyOqPmjVToJ9IssW0wgVcpS/0FDgwYC/JKoDza
+/bBIQRm2iQKBgQCu3Kyyr2kNFZuEbImIoyDIPnlRgHCfGaafIySeEw/9GKUnSf82
+CufmV3YrocxekF0lynN/tNOXnUV02pj3ihgc8hE/TlmKMsz4w3zbANjXTxxBGRSb
+3QUwFEUiVe+YrMFsR6vT4UA8VqC/MjPUnsLpGynP+pFJnbi7zs3/haa/EQKBgGDC
+LcAA3YdyWaUoMP/i1MxVdAdqiA++YeDMCp44z7bP8D1Ahby91jnAjXc+AKKraIdg
+zKRLe7A1RhiyyEzJnFOwwrY98nqQxkTmaws/45pj20J51k5DjxvFKNbCgOuVOINS
+A8AQgqWeDw4ootJ7e/+2G1T4+XXPw55oMlrNBBT5AoGAWbYf+/chVu+AtX4XG0sW
+hp/dtmKP4eVo52THkPPkY+vEHv2djDIi4HOKtqekgu3CMweR7ED2rDCyXiLrTfpc
+YezLRa/JRCjmsyK6jMMOPqbLGppugYGghQR3pX+DfjEM857XchsuGB45FHUkZFG8
+HPhIANhKFxq1lI4p2O0vlH4=
+-----END PRIVATE KEY-----
+```
+
+## Important Notes:
+
+1. **FIREBASE_PRIVATE_KEY**: Copy the entire private key including the BEGIN and END lines, but as a single line with \n for newlines
+2. **In Render**: When pasting the private key, make sure it's formatted as one continuous string
+3. **CORS_ORIGIN**: Set this to your frontend URL after frontend deployment
+
+## Steps:
+1. Go to your Render backend service
+2. Go to Environment tab
+3. Add each variable above
+4. Redeploy the service
