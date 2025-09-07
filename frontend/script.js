@@ -50,12 +50,19 @@ function saveUserData() {
 
 // Initialize the app
 function initializeApp() {
+    console.log('Initializing app...');
+    
     // Set up navigation
     const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    console.log('Found nav links:', navLinks.length);
+    
+    navLinks.forEach((link, index) => {
+        console.log(`Setting up nav link ${index}:`, link.getAttribute('href'));
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('Nav link clicked:', this.getAttribute('href'));
             const targetSection = this.getAttribute('href').substring(1);
+            console.log('Target section:', targetSection);
             showSection(targetSection);
             
             // Update active nav link
@@ -104,14 +111,21 @@ function setupEventListeners() {
 
 // Show specific section
 function showSection(sectionId) {
+    console.log('showSection called with:', sectionId);
     const sections = document.querySelectorAll('.section');
+    console.log('Found sections:', sections.length);
+    
     sections.forEach(section => {
         section.classList.remove('active');
     });
     
     const targetSection = document.getElementById(sectionId);
+    console.log('Target section element:', targetSection);
     if (targetSection) {
         targetSection.classList.add('active');
+        console.log('Added active class to section:', sectionId);
+    } else {
+        console.error('Section not found:', sectionId);
     }
 }
 
