@@ -74,7 +74,8 @@ async function handleLogin(e) {
     const rememberMe = formData.get('rememberMe');
     
     // Validate form
-    if (!validateLoginForm(email, password)) {
+    if (!email || !password) {
+        showErrorModal('Please fill in all required fields.');
         return;
     }
     
