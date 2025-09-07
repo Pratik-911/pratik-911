@@ -1,0 +1,46 @@
+services:
+  # Backend API Service
+  - type: web
+    name: embrace-your-journey-backend
+    runtime: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: embrace-your-journey-frontend
+          property: url
+
+  # Frontend Service
+  - type: web
+    name: embrace-your-journey-frontend
+    runtime: node
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: .
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: embrace-your-journey-backend
+          property: url

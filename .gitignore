@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.local
+.env.production.local
+dist/
+build/
+*.log
+.DS_Store
+backend/config/serviceAccountKey.json
+.vite/
